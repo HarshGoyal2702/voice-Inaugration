@@ -29,23 +29,24 @@
             <h1 class="college-name">Vaish College Of Engineering</h1>
             <p class="department" id="voice">Department of CSE</p>
           </div>
-          <span class="welcome-msg" id="test">Welcomes You! <br> at <br>National</span>
+          <span class="welcome-msg" id="test">Welcomes You! <br> at <br>Business</span>
           <div class="event-info">
             <!-- <h2 class="event-name">Techathon-23</h2> -->
             <div class="waviy">
-              <span style="--i: 1">C</span>
-              <span style="--i: 2">O</span>
-              <span style="--i: 3">N</span>
-              <span style="--i: 4">F</span>
-              <span style="--i: 5">E</span>
-              <span style="--i: 5">R</span>
-              <span style="--i: 6">E</span>
+              <span style="--i: 1">I</span>
+              <span style="--i: 2">D</span>
+              <span style="--i: 3">E</span>
+              <span style="--i: 4">A</span>
+              <span style="--i: 5">T</span>
+              <span style="--i: 5">H</span>
+              <span style="--i: 6">O</span>
               <span style="--i: 7">N</span>
-              <span style="--i: 8">C</span>
-              <span style="--i: 9">E</span>
+              <span style="--i: 8">-</span>
+              <span style="--i: 9">2</span>
+              <span style="--i: 9">5</span>
             </div>
             <p class="tagline">
-              Latest Trends in Computer Science And Engineering
+              Think big and Innovate the Ideas
             </p>
           </div>
           <div class="btn-info">
@@ -53,7 +54,7 @@
               To give the permission to start the event, please click the
               button below 👇
             </p>
-            <a href="thanks.html" class="start-btn"><span class="text">Start the Meeting 😃</span></a>
+            <a href="thanks.html" class="start-btn"><span class="text">Start the Event 😃</span></a>
           </div>
         </div>
       </div>
@@ -67,7 +68,7 @@
         </div>
         <div class="final-text">
           <p>Thanks for giving us the permission.</p>
-          <p>Here we begin Today's Conference</p>
+          <p>Here we begin Today's Event</p>
         </div>
         <div class="profile-desk">
           <div class="profile-data">
@@ -105,43 +106,7 @@
     <canvas id="confetti"></canvas>
 
     <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
-    <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script> -->
-    <!-- <script src="./js/annyang.min.js"></script> -->
     <script>
-      // -----------using the annyang cdn for speech---------------------------
-      // if (annyang) {
-      //   // Let's define our first command. First the text we expect, and then the function it should call
-      //   var commands = {
-      //     'play video': function(){
-      //       document.getElementById("test").style.backgroundColor("green")
-      //     }
-      //   };
-
-      //   // Add our commands to annyang
-      //   annyang.addCommands(commands);
-
-      //   // Start listening. You can call this here, or attach this call to an event, button, etc.
-      //   annyang.start();
-      // }
-      //---------------using the recognition method in javascript ------------------
-      // function voice(){
-      //   let recognition = new webkitSpeechRecognition();
-      //   recognition.lang="en-GB";
-      //   recognition.onresult = function(event){
-      //     console.log(event);
-      //     let hello = event.results[0][0].transcript;
-      //     console.log(hello)
-      //     console.log(event.results[0][0].transcript);
-      //     if(hello == "Open ."){
-      //       document.getElementById('voice').innerHTML=hello + " you said this";
-      //     }
-      //     else{
-      //       console.log("not working")
-      //     }
-      //   }
-      //   recognition.start();
-      // }
-
 
       function speak(text) {
         const text_speak = new SpeechSynthesisUtterance(text);
@@ -180,7 +145,6 @@
       Recognition.onresult = (event) => {
         const currentIndex = event.resultIndex;
         const transcript = event.results[currentIndex][0].transcript;
-        // document.getElementById('voice').textContent += transcript + '\n';
 
         takeCommand(transcript.toLowerCase());
 
@@ -196,14 +160,14 @@
           console.log("working")
           console.log(`${message.split("i am ")}`)
           let name = message.split("i am ");
-          speak(`welcome Dr. ${name} sir`)
+          speak(`welcome ${name} sir`)
           wishMe();
         }
         else if (message.includes("why")) {
           console.log("working")
           console.log(`${message.split("why we are")}`)
           let name = message.split("i am ");
-          speak("We are here for National Conference on Latest Trends in Computer Science and Engineering");
+          speak("we are here to celebrate the success of our students who have worked hard to achieve their dream idea into a reality");
         }
         else if (message.includes("college of")) {
           const text = "this is what i found on google regarding " + "vaish" + message
@@ -217,22 +181,22 @@
           CHEER.currentTime = 0
           CHEER.play()
           speak("yah Sure");
-        const card = document.querySelector(".thecard");
-        card.classList.add("flip");
+          const card = document.querySelector(".thecard");
+          card.classList.add("flip");
 
-        const jsConfetti = new JSConfetti();
-        jsConfetti
-          .addConfetti({
-            emojis: ["🥳", "⚡️", "💥", "✨", "💫", "🌸"],
-          })
-          .then(() => jsConfetti.addConfetti());
-      }
+          const jsConfetti = new JSConfetti();
+          jsConfetti
+            .addConfetti({
+              emojis: ["🥳", "⚡️", "💥", "✨", "💫", "🌸"],
+            })
+            .then(() => jsConfetti.addConfetti());
+        }
         else if (message.includes("open")) {
-        console.log("working")
-        speak("party toh banti h");
-        handleCurtain();
+          console.log("working")
+          speak("party toh banti h");
+          handleCurtain();
+        }
       }
-    }
 
 
       const handleCurtain = () => {
