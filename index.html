@@ -71,33 +71,8 @@
           <p>Here we begin Today's Event</p>
         </div>
         <div class="profile-desk">
-          <div class="profile-data">
-            <div class="baner">
-              <h1>Dr. Yudhvir Singh</h1>
-              <p>Prof. & Director UIET</p>
-            </div>
-
-            <div class="baner">
-              <h1>Dr. Ankit Verma</h1>
-              <p>Prof. and Head AI/ML ADGITM</p>
-            </div>
-            <div class="baner">
-              <h1>Dr. Puneet Garg</h1>
-              <p>Dean Acadamic and Reseach, SAITM Gurugram</p>
-            </div>
-            <div class="baner">
-              <h1>Dr. Sunita</h1>
-              <p>Associate Prof. CSE Dept. SAITM Gurugram</p>
-            </div>
-            <div class="baner">
-              <h1>Dr. Mahesh Kumar</h1>
-              <p>Asst. Prof. IT Dept. Bhartiya VidyaPeeth</p>
-            </div>
-            <div class="baner">
-              <h1>Dr Kamal Kumar Ranga</h1>
-              <p>Asst. Prof. CSE Dept.
-                Government College Bahadurgarh.</p>
-            </div>
+          <div class="profile-data" id="judges-container">
+            <!-- Judges will be dynamically added here -->
           </div>
         </div>
       </div>
@@ -231,6 +206,32 @@
         }, 500);
       });
 
+      const judges = [
+        { name: "Mr. Amit Singla", position: "Assistant Professor, CSE Department" },
+        { name: "Mr. Pratham Sharma", position: "Fantastic AI Trainer" },
+        { name: "Ms. Astha Jain", position: "Assistant Professor, MBA Department" },
+        { name: "Mr. Arjun Gupta", position: "ATPO, Training & Placement Cell" },
+      ];
+
+      function displayJudges() {
+        const container = document.getElementById("judges-container");
+        container.innerHTML = ""; // Clear previous content
+
+        judges.forEach(judge => {
+          const div = document.createElement("div");
+          div.classList.add("baner"); // Keeping the original class name
+
+          div.innerHTML = `
+                <h1>${judge.name}</h1>
+                <p>${judge.position}</p>
+            `;
+
+          container.appendChild(div);
+        });
+      }
+
+      // Call the function to display judges dynamically
+      displayJudges();
     </script>
 </body>
 
